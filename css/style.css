@@ -190,8 +190,8 @@ h1, h2, h3, h4, h5, h6 {
       display: none; }
 
 .menu__link {
-  color: #113444;
-  font-size: 33px;
+  color: #f50000;
+  font-size: 14px;
   font-weight: 900;
   /* text-shadow: 10px 10px 10px  white; */
   text-shadow: 2px 2px 9px rgba(63,103,128,0.98);
