@@ -190,9 +190,11 @@ h1, h2, h3, h4, h5, h6 {
       display: none; }
 
 .menu__link {
-  color: #4d4959;
-  font-size: 13px;
-  font-weight: 700;
+  color: #113444;
+  font-size: 33px;
+  font-weight: 900;
+  /* text-shadow: 10px 10px 10px  white; */
+  text-shadow: 2px 2px 9px rgba(63,103,128,0.98);
   text-transform: uppercase;
   letter-spacing: 2.6px; }
 
