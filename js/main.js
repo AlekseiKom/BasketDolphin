@@ -1,8 +1,3 @@
-//@prepros-append jq-start.js
-//@prepros-append sliders.js
-//@prepros-append forms.js
-//@prepros-append script.js
-//@prepros-append jq-end.js
 $(document).ready(function() {
 		var w=$(window).outerWidth();
 		var h=$(window).outerHeight();
@@ -242,5 +237,20 @@ function removeFormErrors(form){
 	form.find('.form__error').remove();
 }
 
-$('.wrapper').addClass('loaded');$('.icon-menu').click(function(event) {	$(this).toggleClass('active');	$('.menu__body').toggleClass('active');	$('body').toggleClass('lock');});function ibg(){	$.each($('.ibg'), function(index, val) {		if($(this).find('img').length>0){			$(this).css('background-image','url("'+$(this).find('img').attr('src')+'")');		}	});}ibg();
+$('.wrapper').addClass('loaded');
+
+$('.icon-menu').click(function(event) {
+	$(this).toggleClass('active');
+	$('.menu__body').toggleClass('active');
+	$('body').toggleClass('lock');
+});
+
+function ibg(){
+	$.each($('.ibg'), function(index, val) {
+		if($(this).find('img').length>0){
+			$(this).css('background-image','url("'+$(this).find('img').attr('src')+'")');
+		}
+	});
+}
+ibg();
 });
