@@ -1,4 +1,4 @@
-@import url("https://fonts.googleapis.com/css?family=Lato:400,400i,700&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Nunito:ital,wght@0,300;0,400;0,700;0,900;1,400&display=swap");
 * {
   padding: 0px;
   margin: 0px;
@@ -25,13 +25,13 @@ html, body {
 body {
   line-height: 1;
   font-size: 14px;
-  font-family: "Lato";
+  font-family: "Nunito";
   -ms-text-size-adjust: 100%;
   -moz-text-size-adjust: 100%;
   -webkit-text-size-adjust: 100%; }
 
 input, button, textarea {
-  font-family: "Lato"; }
+  font-family: "Nunito"; }
 
 input::-ms-clear {
   display: none; }
@@ -147,8 +147,7 @@ h1, h2, h3, h4, h5, h6 {
     .header__logo img {
       height: 58px;
       width: auto;
-      border-radius: 12px;
-      box-shadow: rgba(0, 0, 0, 0.3) 0px 19px 38px, rgba(0, 0, 0, 0.22) 0px 15px 12px; }
+      }
   @media (max-width: 767px) {
     .header {
       top: 15px; }
