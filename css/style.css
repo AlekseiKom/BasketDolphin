@@ -143,12 +143,12 @@ h1, h2, h3, h4, h5, h6 {
     -webkit-box-align: center;
     -ms-flex-align: center;
     align-items: center;
-    height: 85px; }
+    height: 95px; }
   .header__logo {
     display: inline-block;
     margin-right: 30px; }
     .header__logo img {
-      height: 58px;
+      height: 88px;
       width: auto;
       }
   @media (max-width: 767px) {
@@ -158,7 +158,7 @@ h1, h2, h3, h4, h5, h6 {
       justify-content: flex-start;
       padding-left: 15px; }
     .header__logo img {
-      height: 48px; } }
+      height: 64px; } }
 
 .menu__list {
   display: -webkit-box;
@@ -188,13 +188,12 @@ h1, h2, h3, h4, h5, h6 {
       display: none; }
 
 .menu__link {
-  color: #1e2d3b;
-  font-size: 14px;
+  color: #fff;
+  font-size: 20px;
   font-weight: 900;
-  /* text-shadow: 10px 10px 10px  white; */
-  text-shadow: 2px 2px 9px rgba(63,103,128,0.98);
+  text-shadow: 0 2px 12px rgba(5,12,20,.95);
   text-transform: uppercase;
-  letter-spacing: 2.6px; }
+  letter-spacing: 3px; }
 
 @media (max-width: 767px) {
   .menu__body {
@@ -433,6 +432,46 @@ h1, h2, h3, h4, h5, h6 {
     height: 100%;
     top: 0;
     left: 0; }
+  .main-screen__overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 1;
+    background: linear-gradient(to bottom, rgba(13, 27, 42, .65) 0%, rgba(13, 27, 42, .42) 35%, rgba(13, 27, 42, .28) 70%, rgba(13, 27, 42, .16) 100%);
+    pointer-events: none; }
+    .main-screen__overlay .decor { position: absolute; color: #fff; height: auto; }
+
+.decor--ball-lg    { top: 14%; right: 5%; width: 230px; opacity: .28; transform: rotate(-15deg); }
+.decor--hoop-1     { top: 16%; left: 4%; width: 170px; opacity: .22; }
+.decor--sneaker-1  { bottom: 14%; right: 6%; width: 210px; opacity: .25; transform: rotate(-8deg); }
+.decor--ball-md    { top: 44%; left: 7%; width: 130px; opacity: .2; transform: rotate(20deg); }
+.decor--hoop-2     { bottom: 30%; right: 26%; width: 120px; opacity: .18; transform: rotate(6deg); }
+.decor--ball-sm    { top: 56%; right: 12%; width: 90px; opacity: .3; color: #f07a28; transform: rotate(-25deg); }
+.decor--sneaker-2  { bottom: 6%; left: 10%; width: 150px; opacity: .24; transform: rotate(6deg); }
+.decor--ball-xs    { top: 27%; left: 38%; width: 64px; opacity: .18; transform: rotate(30deg); }
+.decor--hoop-3     { bottom: 8%; right: 44%; width: 140px; opacity: .2; transform: rotate(-5deg); }
+.decor--ball-md2   { top: 68%; left: 30%; width: 150px; opacity: .18; transform: rotate(35deg); }
+.decor--sneaker-3  { top: 14%; right: 32%; width: 170px; opacity: .2; transform: rotate(-10deg); }
+.decor--ball-xxs   { bottom: 26%; left: 48%; width: 56px; opacity: .28; color: #f07a28; transform: rotate(40deg); }
+.decor--swish-1    { top: 24%; right: 16%; width: 300px; opacity: .25; transform: rotate(-6deg); }
+.decor--ball-sm2   { bottom: 4%; left: 38%; width: 80px; opacity: .22; transform: rotate(15deg); }
+
+@media (max-width: 900px) {
+  .decor--swish-1, .decor--sneaker-3, .decor--ball-md2, .decor--hoop-3 { display: none; }
+  .decor--ball-lg { width: 150px; top: 12%; right: 4%; }
+  .decor--hoop-1 { width: 120px; }
+  .decor--sneaker-1 { width: 150px; bottom: 10%; }
+  .decor--ball-md { width: 95px; } }
+
+@media (max-width: 600px) {
+  .decor--hoop-2, .decor--sneaker-2, .decor--ball-xs, .decor--ball-sm2 { display: none; }
+  .decor--ball-lg { width: 110px; opacity: .24; }
+  .decor--hoop-1 { width: 95px; top: 18%; left: 3%; }
+  .decor--sneaker-1 { width: 120px; bottom: 6%; right: 4%; }
+  .decor--ball-md { width: 75px; top: 48%; left: 4%; }
+  .decor--ball-sm { width: 64px; top: 60%; right: 6%; } }
 
 .generation {
   padding: 120px 0;
