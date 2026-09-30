@@ -238,4 +238,22 @@ function removeFormErrors(form){
 }
 
 $('.wrapper').addClass('loaded');$('.icon-menu').click(function(event) {	$(this).toggleClass('active');	$('.menu__body').toggleClass('active');	$('body').toggleClass('lock');});function ibg(){	$.each($('.ibg'), function(index, val) {		if($(this).find('img').length>0){			$(this).css('background-image','url("'+$(this).find('img').attr('src')+'")');		}	});}ibg();
+//QUOTES SLIDER
+if($(".quotes__body").length>0){
+    var qCur=0;
+    var $slides=$(".quotes__slide");
+    var $dots=$(".quotes__dot");
+    function showQuote(i){
+        qCur=i;
+        $slides.removeClass("active").eq(i).addClass("active");
+        $dots.removeClass("active").eq(i).addClass("active");
+    }
+    showQuote(0);
+    $dots.click(function(){
+        showQuote($(this).index());
+    });
+    setInterval(function(){
+        showQuote((qCur+1)%$slides.length);
+    },6000);
+}
 });
