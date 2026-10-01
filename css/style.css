@@ -887,3 +887,54 @@ h1, h2, h3, h4, h5, h6 {
 
 @media (min-width: 768px) and (max-width: 840px) {
   .main-screen__logo img { height: 150px; } }
+
+
+/* ===== New sections: facts / story / map / reviews ===== */
+.section-heading { color:#353738; font-size:24px; font-weight:900; text-transform:uppercase; letter-spacing:3.6px; margin:0 0 14px 0; text-align:center; }
+.section-sub { color:#848789; font-size:18px; font-style:italic; line-height:28px; margin:0 auto 50px auto; max-width:640px; text-align:center; }
+
+/* ===== Facts / О площадке ===== */
+.facts { padding:110px 0; background-color:#f7f7f7; }
+.facts__grid { display:grid; grid-template-columns:repeat(2,1fr); gap:24px; margin-top:50px; }
+.fact { background:#fff; border-radius:12px; padding:36px 32px; box-shadow:0 10px 30px rgba(53,55,56,.07); }
+.fact__icon { width:44px; height:44px; color:#f07a28; margin-bottom:22px; }
+.fact__title { color:#353738; font-size:18px; font-weight:900; text-transform:uppercase; letter-spacing:2.4px; margin:0 0 14px 0; }
+.fact__text { color:#848789; font-size:16px; line-height:28px; margin:0; }
+
+/* ===== Story / История ===== */
+.story { padding:110px 0; background-color:#fff; }
+.story__row { display:grid; grid-template-columns:repeat(2,1fr); gap:24px; }
+.story__card { background:#f7f7f7; border-radius:12px; padding:40px 36px; }
+.story__label { display:inline-block; color:#fff; background:#848789; font-size:12px; font-weight:900; text-transform:uppercase; letter-spacing:2.4px; padding:8px 16px; border-radius:999px; margin-bottom:20px; }
+.story__card--now .story__label { background:#f07a28; }
+.story__title { color:#353738; font-size:20px; font-weight:900; margin:0 0 16px 0; }
+.story__card p, .story__text p { color:#848789; line-height:30px; font-size:16px; margin:0 0 14px 0; }
+.story__text { max-width:820px; margin:40px auto 0 auto; text-align:center; }
+
+/* ===== Map / Как добраться ===== */
+.map { padding:110px 0; background-color:#f7f7f7; }
+.map__wrap { margin-top:50px; border-radius:12px; overflow:hidden; box-shadow:0 16px 40px rgba(53,55,56,.12); }
+.map__wrap iframe { display:block; width:100%; height:480px; border:0; }
+.map__note { margin-top:22px; color:#848789; font-size:16px; line-height:28px; text-align:center; }
+.map__note b { color:#353738; }
+.map__tips { display:grid; grid-template-columns:repeat(3,1fr); gap:24px; margin-top:40px; }
+.tip { background:#fff; border-radius:12px; padding:32px 28px; box-shadow:0 10px 30px rgba(53,55,56,.07); }
+.tip__icon { width:40px; height:40px; color:#f07a28; margin-bottom:18px; }
+.tip__title { color:#353738; font-size:16px; font-weight:900; text-transform:uppercase; letter-spacing:2.4px; margin:0 0 12px 0; }
+.tip__text { color:#848789; font-size:15px; line-height:26px; margin:0; }
+
+/* ===== Reviews / Отзывы ===== */
+.reviews { padding:110px 0; background-color:#fff; }
+.reviews__grid { display:grid; grid-template-columns:repeat(3,1fr); gap:24px; margin-top:50px; }
+.review { background:#f7f7f7; border-radius:12px; padding:36px 30px; display:flex; flex-direction:column; gap:18px; }
+.review p { color:#848789; line-height:28px; font-size:16px; margin:0; flex:1; }
+.review cite { color:#f07a28; font-style:normal; font-weight:700; font-size:14px; letter-spacing:.5px; }
+
+/* ===== Responsive (new sections) ===== */
+@media (max-width:900px) {
+  .facts__grid, .story__row { grid-template-columns:1fr; }
+}
+@media (max-width:600px) {
+  .map__tips, .reviews__grid { grid-template-columns:1fr; }
+  .map__wrap iframe { height:380px; }
+}
