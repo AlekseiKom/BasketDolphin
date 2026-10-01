@@ -1,5 +1,3 @@
-@import url("https://fonts.googleapis.com/css2?family=Nunito:ital,wght@0,300;0,400;0,700;0,900;1,400&display=swap");
-
 html { scroll-behavior: smooth; }
 
 * {
@@ -129,7 +127,8 @@ h1, h2, h3, h4, h5, h6 {
   width: 100%;
   z-index: 50;
   left: 0;
-  top: 35px; }
+  top: 35px;
+  display: none; }
   .header__row {
     display: -webkit-box;
     display: -moz-box;
@@ -151,14 +150,9 @@ h1, h2, h3, h4, h5, h6 {
       height: 88px;
       width: auto;
       }
-  @media (max-width: 767px) {
-    .header {
-      top: 15px; }
-    .header__row {
-      justify-content: flex-start;
-      padding-left: 15px; }
-    .header__logo img {
-      height: 64px; } }
+
+/* Шапка видна только на десктопе; на мобильных логотип и ссылка — по центру в main-screen */
+@media (min-width: 768px) { .header { display: block; } }
 
 .menu__list {
   display: -webkit-box;
@@ -425,13 +419,15 @@ h1, h2, h3, h4, h5, h6 {
   -webkit-box-flex: 1;
   -ms-flex: 1 0 100%;
   flex: 1 0 100%;
-  position: relative; }
+  position: relative;
+  overflow: hidden; }
   .main-screen__bg {
     position: absolute;
-    width: 100%;
-    height: 100%;
-    top: 0;
-    left: 0; }
+    width: calc(100% + 80px);
+    height: calc(100% + 80px);
+    top: -40px;
+    left: -40px;
+    filter: blur(12px) saturate(1.12); }
   .main-screen__overlay {
     position: absolute;
     top: 0;
@@ -439,39 +435,152 @@ h1, h2, h3, h4, h5, h6 {
     width: 100%;
     height: 100%;
     z-index: 1;
-    background: linear-gradient(to bottom, rgba(13, 27, 42, .65) 0%, rgba(13, 27, 42, .42) 35%, rgba(13, 27, 42, .28) 70%, rgba(13, 27, 42, .16) 100%);
+    background: linear-gradient(to bottom, rgba(15, 32, 64, .95) 0%, rgba(15, 32, 64, .78) 35%, rgba(15, 32, 64, .62) 70%, rgba(15, 32, 64, .45) 100%);
     pointer-events: none; }
-    .main-screen__overlay .decor { position: absolute; color: #fff; height: auto; }
+    .main-screen__overlay .decor { position: absolute; color: #fff; height: auto; width: 130px; opacity: .16; }
 
-.decor--ball-lg    { top: 14%; right: 5%; width: 230px; opacity: .28; transform: rotate(-15deg); }
-.decor--hoop-1     { top: 16%; left: 4%; width: 170px; opacity: .22; }
-.decor--sneaker-1  { bottom: 14%; right: 6%; width: 210px; opacity: .25; transform: rotate(-8deg); }
-.decor--ball-md    { top: 44%; left: 7%; width: 130px; opacity: .2; transform: rotate(20deg); }
-.decor--hoop-2     { bottom: 30%; right: 26%; width: 120px; opacity: .18; transform: rotate(6deg); }
-.decor--ball-sm    { top: 56%; right: 12%; width: 90px; opacity: .3; color: #f07a28; transform: rotate(-25deg); }
-.decor--sneaker-2  { bottom: 6%; left: 10%; width: 150px; opacity: .24; transform: rotate(6deg); }
-.decor--ball-xs    { top: 27%; left: 38%; width: 64px; opacity: .18; transform: rotate(30deg); }
-.decor--hoop-3     { bottom: 8%; right: 44%; width: 140px; opacity: .2; transform: rotate(-5deg); }
-.decor--ball-md2   { top: 68%; left: 30%; width: 150px; opacity: .18; transform: rotate(35deg); }
-.decor--sneaker-3  { top: 14%; right: 32%; width: 170px; opacity: .2; transform: rotate(-10deg); }
-.decor--ball-xxs   { bottom: 26%; left: 48%; width: 56px; opacity: .28; color: #f07a28; transform: rotate(40deg); }
-.decor--swish-1    { top: 24%; right: 16%; width: 300px; opacity: .25; transform: rotate(-6deg); }
-.decor--ball-sm2   { bottom: 4%; left: 38%; width: 80px; opacity: .22; transform: rotate(15deg); }
+  .main-screen__center {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 2;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center; }
+    .main-screen__logo {
+      display: inline-block; }
+      .main-screen__logo img {
+        height: 190px;
+        width: auto;
+        filter: drop-shadow(0 6px 28px rgba(4, 10, 18, .55)); }
+    .main-screen__link {
+      margin-top: 40px;
+      display: -webkit-box;
+      display: -moz-box;
+      display: -ms-flexbox;
+      display: -webkit-flex;
+      display: flex;
+      -webkit-box-align: center;
+      -ms-flex-align: center;
+      align-items: center;
+      padding: 22px 48px;
+      color: #fff;
+      font-size: 26px;
+      font-weight: 900;
+      text-transform: uppercase;
+      letter-spacing: 3px;
+      background-color: rgba(255, 255, 255, .1);
+      border: 2px solid rgba(255, 255, 255, .75);
+      border-radius: 60px;
+      -webkit-backdrop-filter: blur(8px);
+      backdrop-filter: blur(8px);
+      box-shadow: 0 10px 34px rgba(4, 10, 18, .45), inset 0 1px 0 rgba(255, 255, 255, .25);
+      transition: background-color .3s ease, border-color .3s ease, transform .3s ease, box-shadow .3s ease; }
+    .main-screen__link-icon {
+      flex: none;
+      margin-right: 16px;
+      -webkit-transition: -webkit-transform .3s ease;
+      transition: transform .3s ease; }
+    .main-screen__link-arrow {
+      flex: none;
+      margin-left: 16px;
+      -webkit-transition: -webkit-transform .3s ease;
+      transition: transform .3s ease; }
+    .main-screen__link:hover {
+      background-color: #f07a28;
+      border-color: #f07a28;
+      color: #fff;
+      -webkit-transform: translateY(-4px);
+      transform: translateY(-4px);
+      box-shadow: 0 16px 44px rgba(240, 122, 40, .45), inset 0 1px 0 rgba(255, 255, 255, .3); }
+    .main-screen__link:hover .main-screen__link-icon {
+      -webkit-transform: rotate(-8deg) scale(1.08);
+      transform: rotate(-8deg) scale(1.08); }
+    .main-screen__link:hover .main-screen__link-arrow {
+      -webkit-transform: translateX(6px);
+      transform: translateX(6px); }
+    .main-screen__link:active {
+      -webkit-transform: translateY(-1px) scale(.97);
+      transform: translateY(-1px) scale(.97); }
+
+.main-screen__scroll {
+  position: absolute;
+  left: 50%;
+  bottom: 26px;
+  z-index: 2;
+  color: #fff;
+  opacity: .85;
+  filter: drop-shadow(0 3px 10px rgba(4, 10, 18, .6));
+  -webkit-animation: main-screen-scroll-bounce 1.8s ease-in-out infinite;
+  animation: main-screen-scroll-bounce 1.8s ease-in-out infinite; }
+  .main-screen__scroll:hover { opacity: 1; }
+
+@-webkit-keyframes main-screen-scroll-bounce {
+  0%, 100% { transform: translate(-50%, 0); }
+  50% { transform: translate(-50%, 9px); } }
+
+@keyframes main-screen-scroll-bounce {
+  0%, 100% { transform: translate(-50%, 0); }
+  50% { transform: translate(-50%, 9px); } }
+
+@media (max-width: 767px) {
+  .main-screen__logo img { height: 74px; }
+  .main-screen__link { margin-top: 22px; padding: 15px 28px; font-size: 15px; letter-spacing: 1.5px; }
+  .main-screen__link-icon { width: 20px; height: 20px; margin-right: 10px; }
+  .main-screen__link-arrow { width: 18px; height: 18px; margin-left: 10px; }
+  .main-screen__scroll { bottom: 18px; } }
+
+@media (max-width: 380px) {
+  .main-screen__logo img { height: 58px; }
+  .main-screen__link { padding: 12px 20px; font-size: 13px; letter-spacing: 1px; } }
+
+/* «Кирпичный» узор с чистым окном в центре — под логотип и кнопку */
+.decor--ball-lg    { top: 3%; left: 1%; transform: rotate(-8deg); }
+.decor--hoop-1     { top: 3%; left: 22%; transform: rotate(6deg); }
+.decor--sneaker-1  { top: 3%; left: 43%; transform: rotate(-7deg); }
+.decor--ball-md    { top: 3%; left: 64%; transform: rotate(8deg); }
+.decor--ball-md3   { top: 3%; left: 85%; transform: rotate(-6deg); }
+
+.decor--sneaker-2  { top: 11.5%; left: 11.5%; transform: rotate(7deg); }
+.decor--swish-2    { top: 11.5%; left: 32.5%; transform: rotate(-6deg); }
+.decor--ball-sm3   { top: 11.5%; left: 53.5%; transform: rotate(-9deg); }
+.decor--ball-xs2   { top: 11.5%; left: 74.5%; transform: rotate(8deg); }
+.decor--hoop-4     { top: 11.5%; left: 96%; transform: rotate(-6deg); }
+
+/* Средняя зона — только по краям, чтобы не перекрывать логотип и кнопку */
+.decor--hoop-2     { top: 26%; left: 3%; transform: rotate(-6deg); }
+.decor--swish-3    { top: 26%; left: 90%; transform: rotate(7deg); }
+
+.decor--ball-sm2   { top: 40%; left: 3%; transform: rotate(7deg); }
+.decor--sneaker-3  { top: 40%; left: 90%; transform: rotate(-8deg); }
+
+.decor--ball-md4   { top: 54%; left: 3%; transform: rotate(-7deg); }
+.decor--swish-1    { top: 54%; left: 90%; transform: rotate(-6deg); }
+
+.decor--sneaker-4  { top: 68%; left: 3%; transform: rotate(-8deg); }
+.decor--ball-xs    { top: 68%; left: 90%; transform: rotate(9deg); }
+
+/* Нижние ряды — снова полный узор */
+.decor--hoop-5     { bottom: 10%; left: 1%; transform: rotate(7deg); }
+.decor--sneaker-5  { bottom: 10%; left: 22%; transform: rotate(-7deg); }
+.decor--hoop-6     { bottom: 10%; left: 43%; transform: rotate(5deg); }
+.main-screen__overlay .decor--ball-sm    { bottom: 10%; left: 64%; opacity: .2; color: #f07a28; transform: rotate(-9deg); }
+.decor--ball-sm4   { bottom: 10%; left: 85%; transform: rotate(9deg); }
+
+.decor--ball-md2   { bottom: 2.5%; left: 11.5%; transform: rotate(6deg); }
+.decor--ball-md5   { bottom: 2.5%; left: 32.5%; transform: rotate(8deg); }
+.main-screen__overlay .decor--sneaker-6  { bottom: 2.5%; left: 53.5%; opacity: .2; color: #f07a28; transform: rotate(-8deg); }
+.decor--hoop-3     { bottom: 2.5%; left: 74.5%; transform: rotate(-5deg); }
 
 @media (max-width: 900px) {
-  .decor--swish-1, .decor--sneaker-3, .decor--ball-md2, .decor--hoop-3 { display: none; }
-  .decor--ball-lg { width: 150px; top: 12%; right: 4%; }
-  .decor--hoop-1 { width: 120px; }
-  .decor--sneaker-1 { width: 150px; bottom: 10%; }
-  .decor--ball-md { width: 95px; } }
+  .decor--ball-md3, .decor--swish-2, .decor--hoop-6, .decor--sneaker-3, .decor--ball-sm4 { display: none; }
+  .main-screen__overlay .decor { width: 100px; } }
 
 @media (max-width: 600px) {
-  .decor--hoop-2, .decor--sneaker-2, .decor--ball-xs, .decor--ball-sm2 { display: none; }
-  .decor--ball-lg { width: 110px; opacity: .24; }
-  .decor--hoop-1 { width: 95px; top: 18%; left: 3%; }
-  .decor--sneaker-1 { width: 120px; bottom: 6%; right: 4%; }
-  .decor--ball-md { width: 75px; top: 48%; left: 4%; }
-  .decor--ball-sm { width: 64px; top: 60%; right: 6%; } }
+  .decor--hoop-4, .decor--ball-xs2, .decor--swish-1, .decor--hoop-3 { display: none; }
+  .main-screen__overlay .decor { width: 58px; } }
 
 .generation {
   padding: 120px 0;
@@ -746,115 +855,226 @@ h1, h2, h3, h4, h5, h6 {
     display: block; }
   .subscribe__input {
     padding: 0px 0px 8px 0px; } }
-
-/* QUOTES */
-.quotes {
-  position: relative;
-  overflow: hidden;
-  background-color: #ffffff;
-  padding: 110px 0 95px 0; }
-  .quotes__bg,
-  .quotes__bg_l {
-    position: absolute;
-    pointer-events: none;
-    opacity: 0.08; }
-  .quotes__bg {
-    top: -70px;
-    right: -90px;
-    width: 430px;
-    height: 430px; }
-  .quotes__bg_l {
-    bottom: -60px;
-    left: -70px;
-    width: 320px;
-    height: 320px; }
-  .quotes__body {
-    position: relative;
-    max-width: 800px;
-    margin: 0px auto;
-    text-align: center; }
-  .quotes__slide {
-    display: none; }
-  .quotes__slide.active {
-    display: block; }
-  .quotes__icon {
-    color: #64c29e;
-    margin: 0px 0px 30px 0px; }
-  .quotes__text {
-    color: #353738;
-    font-size: 26px;
-    font-style: italic;
-    line-height: 38px;
-    margin: 0px 0px 25px 0px; }
-  .quotes__author {
-    color: #848789;
-    font-size: 15px;
-    font-weight: 700;
-    text-transform: uppercase;
-    letter-spacing: 1.5px; }
-  .quotes__dots {
-    margin-top: 45px;
-    font-size: 0;
-    display: -webkit-box;
-    display: -moz-box;
-    display: -ms-flexbox;
-    display: -webkit-flex;
-    display: flex;
-    -webkit-box-pack: center;
-    -ms-flex-pack: center;
-    justify-content: center; }
-  .quotes__dot {
-    width: 11px;
-    height: 11px;
-    border-radius: 50%;
-    background-color: #d3d7d9;
-    cursor: pointer;
-    margin: 0px 6px;
-    -webkit-transition: all .3s ease;
-    transition: all .3s ease; }
-  .quotes__dot.active {
-    background-color: #64c29e;
-    -webkit-transform: scale(1.3);
-    transform: scale(1.3); }
-
-/* BASKETBALL SOCIAL ICONS */
-.footer__social {
-  color: #848789; }
-  .footer__social .social__link {
-    -webkit-transition: color .3s ease;
-    transition: color .3s ease; }
-  .footer__social .social__link svg {
-    display: block; }
-  .footer__social .social__link:hover {
-    color: #64c29e; }
-
-.slider__icon {
-  color: #64c29e; }
-
-@media (max-width: 1100px) {
-  .quotes {
-    padding: 80px 0 70px 0; }
-  .quotes__bg {
-    width: 320px;
-    height: 320px;
-    top: -50px;
-    right: -110px; } }
-
-@media (max-width: 767px) {
-  .quotes {
-    padding: 60px 0 50px 0; }
-  .quotes__bg {
-    width: 240px;
-    height: 240px;
-    top: -40px;
-    right: -120px; }
-  .quotes__bg_l {
-    width: 180px;
-    height: 180px;
-    bottom: -50px;
-    left: -90px; }
-  .quotes__text {
-    font-size: 20px;
-    line-height: 30px; }
-  .quotes__icon {
+
+
+/* QUOTES */
+
+.quotes {
+
+  position: relative;
+
+  overflow: hidden;
+
+  background-color: #ffffff;
+
+  padding: 110px 0 95px 0; }
+
+  .quotes__bg,
+
+  .quotes__bg_l {
+
+    position: absolute;
+
+    pointer-events: none;
+
+    opacity: 0.08; }
+
+  .quotes__bg {
+
+    top: -70px;
+
+    right: -90px;
+
+    width: 430px;
+
+    height: 430px; }
+
+  .quotes__bg_l {
+
+    bottom: -60px;
+
+    left: -70px;
+
+    width: 320px;
+
+    height: 320px; }
+
+  .quotes__body {
+
+    position: relative;
+
+    max-width: 800px;
+
+    margin: 0px auto;
+
+    text-align: center; }
+
+  .quotes__slide {
+
+    display: none; }
+
+  .quotes__slide.active {
+
+    display: block; }
+
+  .quotes__icon {
+
+    color: #64c29e;
+
+    margin: 0px 0px 30px 0px; }
+
+  .quotes__text {
+
+    color: #353738;
+
+    font-size: 26px;
+
+    font-style: italic;
+
+    line-height: 38px;
+
+    margin: 0px 0px 25px 0px; }
+
+  .quotes__author {
+
+    color: #848789;
+
+    font-size: 15px;
+
+    font-weight: 700;
+
+    text-transform: uppercase;
+
+    letter-spacing: 1.5px; }
+
+  .quotes__dots {
+
+    margin-top: 45px;
+
+    font-size: 0;
+
+    display: -webkit-box;
+
+    display: -moz-box;
+
+    display: -ms-flexbox;
+
+    display: -webkit-flex;
+
+    display: flex;
+
+    -webkit-box-pack: center;
+
+    -ms-flex-pack: center;
+
+    justify-content: center; }
+
+  .quotes__dot {
+
+    width: 11px;
+
+    height: 11px;
+
+    border-radius: 50%;
+
+    background-color: #d3d7d9;
+
+    cursor: pointer;
+
+    margin: 0px 6px;
+
+    -webkit-transition: all .3s ease;
+
+    transition: all .3s ease; }
+
+  .quotes__dot.active {
+
+    background-color: #64c29e;
+
+    -webkit-transform: scale(1.3);
+
+    transform: scale(1.3); }
+
+
+
+/* BASKETBALL SOCIAL ICONS */
+
+.footer__social {
+
+  color: #848789; }
+
+  .footer__social .social__link {
+
+    -webkit-transition: color .3s ease;
+
+    transition: color .3s ease; }
+
+  .footer__social .social__link svg {
+
+    display: block; }
+
+  .footer__social .social__link:hover {
+
+    color: #64c29e; }
+
+
+
+.slider__icon {
+
+  color: #64c29e; }
+
+
+
+@media (max-width: 1100px) {
+
+  .quotes {
+
+    padding: 80px 0 70px 0; }
+
+  .quotes__bg {
+
+    width: 320px;
+
+    height: 320px;
+
+    top: -50px;
+
+    right: -110px; } }
+
+
+
+@media (max-width: 767px) {
+
+  .quotes {
+
+    padding: 60px 0 50px 0; }
+
+  .quotes__bg {
+
+    width: 240px;
+
+    height: 240px;
+
+    top: -40px;
+
+    right: -120px; }
+
+  .quotes__bg_l {
+
+    width: 180px;
+
+    height: 180px;
+
+    bottom: -50px;
+
+    left: -90px; }
+
+  .quotes__text {
+
+    font-size: 20px;
+
+    line-height: 30px; }
+
+  .quotes__icon {
+
     margin: 0px 0px 22px 0px; } }
